@@ -1,0 +1,25 @@
+---
+title: "Untitled"
+author: "James"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r}
+#load lib
+library(readr)
+y1<-read.csv("C:\\Users\\user\\OneDrive\\Desktop\\james\\fuel_prices_2026-10-01.csv")
+#Analysis
+ #View(y)
+summary(y$Price)
+y1$Date<-as.Date(y$Date,format="%d-%b-%y")
+rate<-max(y$Price)-min(y$Price)
+rate
+#visualization
+library(ggplot2)
+ggplot(y1,aes(x=Date,y=Price))+geom_line()+
+  labs(x="Date",y='Price',title="Histogram of kerosene prices")
+
+```
+the price of kerosine is highly volatile , mainly due to a choked supply cheked by geopolitics inflation and apademics specifically in 2020 during corona where demand fell sharply
+
